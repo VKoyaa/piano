@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Piano</title>
+    <style>
+      body {
+        background-color: grey;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: #eaeaea;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+      }
+
+      h3 {
+        margin-top: 10px;
+        font-size: 24px;
+      }
+
+      #piano {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 10px;
+      }
+
+      button {
+        background-color: #eaeaea;
+        color: black;
+        margin: 3px;
+        height: 80px;
+        width: 65px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      button:hover {
+        background-color: black;
+        color: white;
+        transition: 0.3s all ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <center>
+      <h3>MY PIANO</h3>
+    </center>
+    <div id="piano"></div>
+
+    <script>
+      const chords = [
+        "do",
+        "do-s",
+        "re",
+        "re-s",
+        "mi",
+        "mi-s",
+        "fa",
+        "fa-s",
+        "sol",
+        "sol-s",
+        "la",
+        "la-s",
+        "si",
+        "si-s",
+        "do",
+        "do-s",
+      ];
+      const piano = document.getElementById("piano");
+
+      chords.forEach((chord) => {
+        const button = document.createElement("button");
+
+        button.innerText = chord;
+
+        button.addEventListener("click", () => {
+          const sound = new Audio(`/assets/${chord}.wav`);
+          sound.play();
+        });
+
+        piano.appendChild(button);
+      });
+    </script>
+  </body>
+</html>
